@@ -1,24 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import ListGroup from "react-bootstrap/ListGroup";
+import InputGroup from "react-bootstrap/InputGroup";
+import FormControl from "react-bootstrap/FormControl";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <InputGroup className="mb-3">
+        <FormControl
+          placeholder="Recipient's username"
+          aria-label="Recipient's username"
+          aria-describedby="basic-addon2"
+        />
+        <InputGroup.Append>
+          <InputGroup.Text id="basic-addon2">@example.com</InputGroup.Text>
+        </InputGroup.Append>
+      </InputGroup>
+      <ListGroup>
+        <ListGroup.Item>Cras justo odio</ListGroup.Item>
+        <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
+        <ListGroup.Item>Morbi leo risus</ListGroup.Item>
+        <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
+        <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+      </ListGroup>
     </div>
   );
 }
