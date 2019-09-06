@@ -4,14 +4,15 @@ import ListGroup from "react-bootstrap/ListGroup";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 
 function App() {
   return (
     <div className="App">
-      <Container>
-        <Row className="justify-content--center">
+      <Container className="justify-content-md-center">
+        <Row className="justify-content-md-center">
           <h1>To do list - Redux </h1>
         </Row>
 
@@ -25,27 +26,35 @@ function App() {
             <Button variant="info">Add</Button>
           </InputGroup.Append>
         </InputGroup>
+
         <ListGroup>
-          <ListGroup.Item>
+          <ListGroup.Item className="d-flex justify-content-between">
             Get a job
-            <Button variant="success" className="justify-content--end">
-              Done!
-            </Button>
-            <Button variant="danger" className="justify-content--end">
-              Remove
-            </Button>
+            <ButtonGroup>
+              <Button variant="success">Done!</Button>
+              <Button variant="danger">Remove</Button>
+            </ButtonGroup>
           </ListGroup.Item>
-          <ListGroup.Item>
-            Learn to surf <Button variant="success">Done!</Button>
-            <Button variant="danger">Remove</Button>
+          <ListGroup.Item className="d-flex justify-content-between">
+            Learn to surf
+            <ButtonGroup>
+              <Button variant="success">Done!</Button>
+              <Button variant="danger">Remove</Button>
+            </ButtonGroup>
           </ListGroup.Item>
-          <ListGroup.Item>
-            Be healthy <Button variant="success">Done!</Button>
-            <Button variant="danger">Remove</Button>
+          <ListGroup.Item className="d-flex justify-content-between">
+            Be healthy
+            <ButtonGroup>
+              <Button variant="success">Done!</Button>
+              <Button variant="danger">Remove</Button>
+            </ButtonGroup>
           </ListGroup.Item>
-          <ListGroup.Item>
-            Get driver's licence <Button variant="success">Done!</Button>
-            <Button variant="danger">Remove</Button>
+          <ListGroup.Item className="d-flex justify-content-between">
+            Get driver's licence
+            <ButtonGroup>
+              <Button variant="success">Done!</Button>
+              <Button variant="danger">Remove</Button>
+            </ButtonGroup>
           </ListGroup.Item>
         </ListGroup>
       </Container>
