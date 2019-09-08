@@ -2,6 +2,7 @@ import React from "react";
 import ListGroup from "react-bootstrap/ListGroup";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
+import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Container from "react-bootstrap/Container";
@@ -12,20 +13,22 @@ class TodoList extends React.Component {
     return (
       <Container className="justify-content-md-center">
         <Row className="justify-content-md-center">
-          <h1>To do list - Redux </h1>
+          <h1>To do list - React </h1>
         </Row>
-
-        <InputGroup className="mb-3">
-          <FormControl
-            placeholder="What would you like to do?"
-            aria-label="To do to add"
-            aria-describedby="basic-addon2"
-          />
-          <InputGroup.Append>
-            <Button variant="info">Add</Button>
-          </InputGroup.Append>
-        </InputGroup>
-
+        <Form onSubmit={this.props.addItem}>
+          <InputGroup className="mb-3">
+            <FormControl
+              placeholder="What would you like to do?"
+              aria-label="To do to add"
+              aria-describedby="basic-addon2"
+            />
+            <InputGroup.Append>
+              <Button type="submit" variant="info">
+                Add
+              </Button>
+            </InputGroup.Append>
+          </InputGroup>
+        </Form>
         <ListGroup>
           <ListGroup.Item className="d-flex justify-content-between">
             Get a job
