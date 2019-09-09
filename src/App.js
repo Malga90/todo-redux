@@ -8,20 +8,28 @@ class App extends React.Component {
       todos: []
     };
   }
+  deleteItem = itemToRemove => {
+    this.setState(prevState => ({
+      todos: prevState.todos.filter(todo => itemToRemove !== todo)
+    }));
+  };
   addItem = e => {
     e.preventDefault();
     const inputValue = e.target.elements[0].value.trim();
-    console.log(inputValue);
+
     this.setState({
       todos: [...this.state.todos, inputValue]
     });
-    console.log(this.state.todos);
   };
 
   render() {
     return (
       <div className="App">
-        <TodoList addItem={this.addItem} todos={this.state.todos} />
+        <TodoList
+          deleteItem={this.deleteItem}
+          addItem={this.addItem}
+          todos={this.state.todos}
+        />
       </div>
     );
   }

@@ -31,9 +31,14 @@ class TodoList extends React.Component {
         </Form>
 
         <ListGroup>
-          {this.props.todos.map(todo => {
-            return <ListElement content={todo} />;
-          })}
+          {this.props.todos.map((todo, index) => (
+            <ListElement
+              key={index}
+              content={todo}
+              count={index + 1}
+              deleteItem={this.props.deleteItem}
+            />
+          ))}
         </ListGroup>
       </Container>
     );
