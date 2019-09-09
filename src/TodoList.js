@@ -6,6 +6,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
+import ListGroup from "react-bootstrap/ListGroup";
 
 class TodoList extends React.Component {
   render() {
@@ -29,7 +30,11 @@ class TodoList extends React.Component {
           </InputGroup>
         </Form>
 
-        <ListElement />
+        <ListGroup>
+          {this.props.todos.map(todo => {
+            return <ListElement content={todo} />;
+          })}
+        </ListGroup>
       </Container>
     );
   }

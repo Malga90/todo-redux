@@ -21,7 +21,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <TodoList addItem={this.addItem} />
+        <TodoList addItem={this.addItem} todos={this.state.todos} />
       </div>
     );
   }
