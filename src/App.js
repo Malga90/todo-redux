@@ -21,6 +21,25 @@ class App extends React.Component {
       todos: [...this.state.todos, inputValue]
     });
   };
+  componentDidMount() {
+    try {
+      const json = localStorage.getItem("todos");
+      const todos = JSON.parse(json);
+
+      if (todos) {
+        this.setState(() => ({ todos }));
+      }
+    } catch (e) {
+      // Do nth at all
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.todos.length !== this.state.todos.length);
+    const json = JSON.stringify(this.state.todos);
+    localStorage.setItem("todos", json);
+    console.log("saving data!");
+  }
 
   render() {
     return (
