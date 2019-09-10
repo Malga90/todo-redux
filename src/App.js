@@ -5,22 +5,34 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos: []
+      todos: [],
+      error: undefined
     };
   }
+
   deleteItem = itemToRemove => {
     this.setState(prevState => ({
       todos: prevState.todos.filter(todo => itemToRemove !== todo)
     }));
   };
+
   addItem = e => {
     e.preventDefault();
     const inputValue = e.target.elements[0].value.trim();
+
+    if (!inputValue) {
+      return "I'm sure, you want to do sth today!";
+    } else if (this.state.todos.indexOf(inputValue) > -1) {
+      return "Already on your to do list";
+    } else {
+      e.target.elements[0].value = "";
+    }
 
     this.setState({
       todos: [...this.state.todos, inputValue]
     });
   };
+
   componentDidMount() {
     try {
       const json = localStorage.getItem("todos");
