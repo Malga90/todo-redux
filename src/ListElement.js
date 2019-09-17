@@ -4,12 +4,30 @@ import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 
 class ListElement extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isDone: false
+    };
+  }
+
+  markItemCompleted = () => {
+    this.setState({
+      isDone: !this.state.isDone
+    });
+  };
+
   render() {
     return (
-      <ListGroup.Item className="d-flex justify-content-between">
+      <ListGroup.Item
+        className="d-flex justify-content-between"
+        variant={this.state.isDone ? "success" : ""}
+      >
         {this.props.count}. {this.props.content}
         <ButtonGroup>
-          <Button variant="success">Done!</Button>
+          <Button variant="success" onClick={this.markItemCompleted}>
+            Done!
+          </Button>
           <Button
             variant="danger"
             onClick={e => {

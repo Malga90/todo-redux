@@ -5,14 +5,13 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos: [],
-      error: undefined
+      todos: []
     };
   }
 
   deleteItem = itemToRemove => {
     this.setState(prevState => ({
-      todos: prevState.todos.filter(todo => itemToRemove !== todo)
+      todos: prevState.todos.filter(todo => todo !== itemToRemove)
     }));
   };
 
@@ -21,9 +20,9 @@ class App extends React.Component {
     const inputValue = e.target.elements[0].value.trim();
 
     if (!inputValue) {
-      return "I'm sure, you want to do sth today!";
+      return false;
     } else if (this.state.todos.indexOf(inputValue) > -1) {
-      return "Already on your to do list";
+      return false;
     } else {
       e.target.elements[0].value = "";
     }
@@ -59,6 +58,7 @@ class App extends React.Component {
         <TodoList
           deleteItem={this.deleteItem}
           addItem={this.addItem}
+          markItemCompleted={this.markItemCompleted}
           todos={this.state.todos}
         />
       </div>
