@@ -11,7 +11,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 class TodoList extends React.Component {
   render() {
     return (
-      <Container className="justify-content-md-center">
+      <Container className="mt-4">
         <Row className="justify-content-md-center">
           <h1>To do list - React </h1>
         </Row>
